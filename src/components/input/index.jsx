@@ -1,43 +1,64 @@
 import React from "react";
+import createServices from "../../services";
 
-const initialState = { value: "hello world" };
+const initialState = { username: "", password: "" };
 
 class view extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = initialState;
-    this.onChange = this.onChange.bind(this); // pratar mer om detta sen =)
+    this.onChangeUsername = this.onChangeUsername.bind(this);
+    this.onChangePassword = this.onChangePassword.bind(this);
+    this.onClick = this.onClick.bind(this);
+    this.services = createServices();
+    // this.services = this.services.bind(this);
   }
-  onChange(eventsArgs) {
-    const value = eventsArgs.target.value;
+  onChangeUsername(eventsArgs) {
+    const username = eventsArgs.target.value;
 
-    this.setState({ value });
+    this.setState(prevState => {
+      return Object.assign({}, prevState, { username });
+    });
+  }
+
+  onChangePassword(eventsArgs) {
+    const password = eventsArgs.target.value;
+
+    this.setState(prevState => {
+      return Object.assign({}, prevState, { password });
+    });
+  }
+
+  onClick(eventArgs) {
+    const username = this.state.username;
+    const password = this.state.password;
+    // eventArgs.preventDefault();
+
+    this.services.user.register(username, password);
   }
   render() {
     return (
       <div>
-        TODO: komplett registreringsformulär med email och lösen samt register,
-        töm bort all boilerplate som inte behövs så att det inte finns
-        exempelkod i react appen eller i storybooken button<form>
-          <label htmlFor="nameInput">
-            First- and Lastname
-            <input
-              type="text"
-              id="nameInput"
-              value={this.state.value}
-              onChange={this.onChange}
-            />
-          </label>
-          <label htmlFor="secondInput">
+        <form>
+          <label htmlFor="emailInput">
             Email
             <input
-              type="text"
-              id="secondInput"
-              value={this.state.value}
-              onChange={this.onChange}
+              id="emailInput"
+              onChange={this.onChangeUsername}
+              value={this.state.username}
             />
           </label>
+          <label htmlFor="passwordInput">
+            Password
+            <input
+              type="password"
+              id="passwordInput"
+              onChange={this.onChangePassword}
+              value={this.state.password}
+            />
+          </label>
+          <button onClick={this.onClick}>Login</button>
         </form>
       </div>
     );
