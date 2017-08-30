@@ -4,10 +4,11 @@ How to preforming common tasks, you can find the most recent version of the guid
 ## Whats done:
 
 - [X] First Commit
-- [X] Added input fields
-- [X] Clean out boilerplate
-- [X] email and password field
-- [X] Add to localStorage(test)
+- [X] Storybook
+- [] Added input fields
+- [] Clean out boilerplate
+- [] email and password field
+- [] Add to localStorage(test)
 
 
 
