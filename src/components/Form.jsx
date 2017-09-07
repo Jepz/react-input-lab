@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 const Name = props => {
   return (
@@ -7,7 +8,7 @@ const Name = props => {
         type="text"
         name="username"
         onChange={props.handleChangeName}
-        value={this.name}
+        value={props.name}
       />
     </label>
   );
@@ -20,7 +21,7 @@ const Password = props => {
         type="password"
         name="password"
         onChange={props.handleChangePass}
-        value={this.pass}
+        value={props.pass}
       />
     </label>
   );
