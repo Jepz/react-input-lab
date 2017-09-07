@@ -15,6 +15,7 @@ const Name = props => {
 };
 
 const Password = props => {
+  console.log(props);
   return (
     <label>
       <input
@@ -47,12 +48,12 @@ class Form extends Component {
   }
 
   handleChangeName(event) {
-    this.setState({ user: event.target.user });
+    this.setState({ user: event.target.value });
     console.log("handleChangeName");
   }
 
   handleChangePass(event) {
-    this.setState({ pass: event.target.pass });
+    this.setState({ pass: event.target.value });
     console.log("handleChangePass");
   }
 
