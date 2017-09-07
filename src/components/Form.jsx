@@ -46,17 +46,18 @@ class Form extends Component {
   }
 
   handleChangeName(event) {
-    this.setState({ value: event.target.user });
-    console.log("handleChange");
+    this.setState({ user: event.target.user });
+    console.log("handleChangeName");
   }
 
   handleChangePass(event) {
-    this.setState({ value: event.target.pass });
+    this.setState({ pass: event.target.pass });
+    console.log("handleChangePass");
   }
 
   handleSubmit(event) {
     console.log("event " + this.state.user + " " + this.state.pass);
-
+    console.log(this.state);
     event.preventDefault();
   }
 
