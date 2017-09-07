@@ -1,12 +1,14 @@
-import React from "react";
-
-const Users = { username: "leet", password: "1337" };
+import React, { Component } from "react";
 
 const Name = props => {
-  console.log(props.value.username);
   return (
     <label>
-      <input type="text" name="username" value={props.value.username} />
+      <input
+        type="text"
+        name="username"
+        onChange={props.handleChangeName}
+        value={this.name}
+      />
     </label>
   );
 };
@@ -14,35 +16,63 @@ const Name = props => {
 const Password = props => {
   return (
     <label>
-      <input type="password" name="password" value={props.value.password} />
+      <input
+        type="password"
+        name="password"
+        onChange={props.handleChangePass}
+        value={this.pass}
+      />
     </label>
   );
 };
 
-const Submit = props => {
+const Submit = () => {
   return (
-    <button onClick={() => props.handleClick()} type="button">
+    <button type="submit" value="submit">
       Login
     </button>
   );
 };
 
-class Form extends React.Component {
+class Form extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { username: "", password: "" };
+    this.state = { user: "boom", pass: "1337" };
+
+    this.handleChangeName = this.handleChangeName.bind(this);
+    this.handleChangePass = this.handleChangePass.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  receiveClick() {
-    console.log("hello world");
+
+  handleChangeName(event) {
+    this.setState({ value: event.target.user });
+    console.log("handleChange");
   }
+
+  handleChangePass(event) {
+    this.setState({ value: event.target.pass });
+  }
+
+  handleSubmit(event) {
+    console.log("event " + this.state.user + " " + this.state.pass);
+
+    event.preventDefault();
+  }
+
   render() {
     return (
       <div>
-        <form>
-          <Name value={this.state} />
-          <Password value={this.state} />
-          <Submit handleClick={this.receiveClick.bind(this)} />
+        <form onSubmit={this.handleSubmit}>
+          <Name
+            name={this.state.value}
+            handleChangeName={this.handleChangeName}
+          />
+          <Password
+            pass={this.state.value}
+            handleChangePass={this.handleChangePass}
+          />
+          <Submit />
         </form>
       </div>
     );
