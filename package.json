@@ -1,20 +1,8 @@
 {
   "name": "react-input-lab",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "eslint-config-prettier": "^2.3.0",
-    "prettier": "^1.5.3",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "react-scripts": "1.0.10",
-    "eslint": "^4.2.0",
-    "eslint-config-airbnb": "^15.0.2",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-react": "^7.1.0",
-    "@storybook/react": "^3.1.8"
-  },
+  "version": "0.2.0",
+  "description": "Create a simple input fileds with react",
+  "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -22,5 +10,23 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
+  },
+  "repository": "git+https://github.com/jepz/react-input-lab.git",
+  "author": "Jesper Lindholmer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jepz/react-input-lab/issues"
+  },
+  "homepage": "https://github.com/jepz/react-input-lab#readme",
+  "dependencies": {
+    "create-react-app": "^1.4.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-scripts": "1.0.12"
+  },
+  "devDependencies": {
+    "@storybook/cli": "^3.2.9",
+    "@storybook/react": "^3.2.8",
+    "eslint": "^4.5.0"
   }
 }
